@@ -6,7 +6,7 @@
 (defn- json-request?
   [req]
   (if-let [req-type (:content-type req)]
-    (seq (re-seq #"^application/(vnd.+)?json" req-type))))
+    (re-seq #"^application/(vnd.+)?json" req-type)))
 
 (defn- parse-json
   "Parse the body of JSON requests."
